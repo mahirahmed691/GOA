@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Animated, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 // Sample JSON data for favorite items
@@ -25,25 +25,52 @@ const FavoritesScreen = () => {
     setItems(updatedItems);
   };
 
+  const heartScale = new Animated.Value(1);
+
+  const handleHeartPressIn = () => {
+    Animated.spring(heartScale, {
+      toValue: 1.2,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const handleHeartPressOut = () => {
+    Animated.spring(heartScale, {
+      toValue: 1,
+      useNativeDriver: true,
+    }).start();
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>Favorite Items</Text>
+      <Text style={styles.header}>Favorites</Text>
       <SafeAreaView style={styles.favoriteItemsContainer}>
         {items.map(item => (
-          <TouchableOpacity key={item.id} style={styles.favoriteItem} onPress={() => toggleFavorite(item.id)}>
+          <TouchableOpacity 
+            key={item.id} 
+            style={styles.favoriteItem} 
+            onPress={() => toggleFavorite(item.id)}
+            onPressIn={handleHeartPressIn}
+            onPressOut={handleHeartPressOut}
+          >
             <Image
               source={{ uri: item.imageUrl }}
               style={styles.image}
             />
             <Text style={styles.itemName}>{item.name}</Text>
-            {item.isFavorite ? (
-              <Ionicons name="heart" size={24} color="crimson" style={styles.heartIcon} />
-            ) : (
-              <Ionicons name="heart-outline" size={24} color="teal" style={styles.heartIcon} />
-            )}
+            <Animated.View style={[styles.heartIcon, { transform: [{ scale: heartScale }] }]}>
+              {item.isFavorite ? (
+                <Ionicons name="heart" size={24} color="red" />
+              ) : (
+                <Ionicons name="heart-outline" size={24} color="#FFF" />
+              )}
+            </Animated.View>
           </TouchableOpacity>
         ))}
       </SafeAreaView>
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>Made with ❤️ by GOA</Text>
+      </View>
     </ScrollView>
   );
 };
@@ -53,32 +80,28 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     backgroundColor: '#fff',
     paddingHorizontal: 20,
-    paddingVertical: 60,
+    paddingVertical: 70,
   },
   header: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 10,
+    color: '#333',
+    textAlign: 'center',
   },
   favoriteItemsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    shadowColor: 'black', // Shadow color
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.15, // Shadow opacity
-    shadowRadius: 1.84, // Shadow radius
   },
   favoriteItem: {
     width: '49%',
     marginBottom: 20,
     borderRadius: 10,
     overflow: 'hidden',
-    elevation: 5, // Add elevation for the raised effect
-    backgroundColor: '#f0f0f0',
+    elevation: 5,
+    backgroundColor: '#00CDBC',
+    position: 'relative',
   },
   image: {
     width: '100%',
@@ -86,19 +109,25 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   itemName: {
-    paddingTop: 5,
-    marginLeft: 0,
-    marginBottom: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
     fontSize: 12,
-    fontWeight: '500',
-    fontFamily: 'Arial',
-    padding:10,
-    paddingTop:10
+    fontWeight: 'bold',
+    color: '#FFF',
   },
   heartIcon: {
     position: 'absolute',
-    bottom: 8,
-    right: 5,
+    top: 10,
+    right: 10,
+    zIndex: 2,
+  },
+  footer: {
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  footerText: {
+    fontSize: 12,
+    color: '#666',
   },
 });
 

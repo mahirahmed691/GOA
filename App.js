@@ -16,7 +16,7 @@ import FavoritesScreen from './Screens/FavouritesScreen';
 const Tab = createBottomTabNavigator();
 const MainStack = createStackNavigator();
 const AuthStack = createStackNavigator();
-const SettingsStack = createStackNavigator(); // Add a stack navigator for the Settings screen
+const SettingsStack = createStackNavigator(); 
 
 const MainScreens = () => (
   <Tab.Navigator
