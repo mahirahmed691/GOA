@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, SafeAreaView, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { Ionicons } from "@expo/vector-icons";
-import styles from "../styles";
+import styles from "../styles/styles";
 
 // Mock data for scanned items
 const mockScannedItems = [

@@ -40,7 +40,7 @@ const LoginScreen = ({ onLogin, navigation }) => {
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
-        <Image source={require("../assets/Logo5.png")} style={styles.logo} />
+        <Image source={require("../assets/Logo.png")} style={styles.logo} />
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}

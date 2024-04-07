@@ -19,7 +19,7 @@ const RegisterScreen = ({ navigation }) => {
   return (
     <ImageBackground source={require('../assets/background.webp')} style={styles.backgroundImage}>
       <View style={styles.container}>
-        <Image source={require('../assets/Logo5.png')} style={styles.logo} />
+        <Image source={require('../assets/Logo.png')} style={styles.logo} />
         <TextInput
           style={styles.input}
           placeholder="Email"

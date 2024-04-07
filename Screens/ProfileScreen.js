@@ -8,7 +8,7 @@ import {
   Modal,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import styles from "../styles";
+import styles from "../styles/styles";
 import EditProfileModal from "../modals/EditProfileModal";
 import SettingsScreen from "./SettingsScreen";
 import PassModal from "../modals/PassModal";

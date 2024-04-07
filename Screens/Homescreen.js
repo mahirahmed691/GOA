@@ -10,7 +10,7 @@ import {
   StatusBar,
 } from "react-native";
 import { IconButton } from "react-native-paper";
-import styles from "../styles";
+import styles from "../styles/styles";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { Searchbar } from "react-native-paper";
@@ -153,7 +153,7 @@ export default function HomeScreen() {
             />
           </TouchableOpacity>
           <Image
-            source={require("/Users/mahirahmed/FBA/assets/Logo5.png")}
+            source={require("/Users/mahirahmed/FBA/assets/Logo.png")}
             style={styles.logo}
             resizeMode="contain"
           />

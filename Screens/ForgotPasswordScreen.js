@@ -13,7 +13,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
   return (
     <ImageBackground source={require('../assets/background.webp')} style={styles.backgroundImage}>
       <View style={styles.container}>
-        <Image source={require('../assets/Logo5.png')} style={styles.logo} />
+        <Image source={require('../assets/Logo.png')} style={styles.logo} />
         <Text style={styles.title}>Reset Your Password.</Text>
         <TextInput
           style={styles.input}
