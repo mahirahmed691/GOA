@@ -16,8 +16,8 @@ import { useNavigation } from "@react-navigation/native";
 import { Searchbar } from "react-native-paper";
 import ProductDetailScreen from "./ProductDetailScreen";
 import MasonryGrid from "react-native-masonry-grid";
-import mockData from "../Data/mockData";
-import SideMenu from "../Screens/SideMenu";
+import mockData from "../data/mockData";
+import SideMenu from "./SideMenu";
 import PromoCarousel from "../components/PromoCarousel";
 import BigPromo from "../components/BigPromo";
 

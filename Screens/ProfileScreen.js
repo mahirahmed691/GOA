@@ -9,9 +9,9 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "../styles";
-import EditProfileModal from "../Modals/EditProfileModal";
+import EditProfileModal from "../modals/EditProfileModal";
 import SettingsScreen from "./SettingsScreen";
-import PassModal from "../Modals/PassModal";
+import PassModal from "../modals/PassModal";
 
 const categories = [
   "Electronics",
